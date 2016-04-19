@@ -14,28 +14,25 @@ if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] < $nivel_necess
 include 'config.php';
     $UserID =  $_SESSION['UsuarioID'];
     $NomeUserLogado = $_SESSION['UsuarioNome'];
-
-      $Privilegios = mysql_connect($host, $user, $pass) or die(mysql_error());//porta, usuário, senha
+    $Privilegios = mysql_connect($host, $user, $pass) or die(mysql_error());//porta, usuário, senha
                    mysql_select_db($banco) or die(mysql_error());
-      $Priv = "SELECT * FROM usuarios WHERE id = $UserID";
-      $Priv = mysql_query($Priv);
+     $Priv = "SELECT * FROM usuarios WHERE id = $UserID";
+     $Priv = mysql_query($Priv);
       while ($row = mysql_fetch_array($Priv)) {
-          $IniciaOrdem = $row['opp2_io'];
-
+      $IniciaOrdem = $row['opp2_io'];
 
     $ChamaChamados = mysql_connect($host, $user, $pass);
     mysql_select_db($banco, $ChamaChamados);
-    $ChamarChamados = mysql_query("SELECT * FROM op_p2 WHERE opp2_id IS NOT NULL", $ChamaChamados);
+    $ChamarChamados = mysql_query("SELECT * FROM op_p2 WHERE op2_id", $ChamaChamados);
     $QntChamados = mysql_num_rows($ChamarChamados);
-    $OPNumber = ($QntChamados+1);
+    $OPNumber = ($QntChamados+2);
     $Data = date('d/m/Y - H:i:s');
 
 //DESCRITIVO DE MODELOS
 //11 - PRISMA SF R01
-//11 - PRISMA SF R02
-//
-//
-//
+//12 - PRISMA SF R02
+//13 - PRISMA SF R03
+//14 - PRISMA SF R04
 //
 
 
