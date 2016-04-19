@@ -190,8 +190,8 @@ try {
     $conn = new PDO("mysql:host=$host;dbname=$banco", $user, $pass);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO hr_op2 (op2_Ordem, op2_Qt, op2_UserC, op2_DtCadastro, op2_DtLimite, op2_Modelo, 'op2_Status')
-    VALUES ('$NumOrdem', '$Quantidade', '$NomeUserLogado', '$DataSolicita', '$DataLimite', '$Modelo', 'P')";
+    $sql = "INSERT INTO hr_op2 (op2_Ordem, op2_Qt, op2_UserC, op2_DtCadastro, op2_DtLimite, op2_Modelo)
+    VALUES ('$NumOrdem', '$Quantidade', '$NomeUserLogado', '$DataSolicita', '$DataLimite', '$Modelo')";
     // use exec() because no results are returned
     $conn->exec($sql);
         echo '<script type="text/javascript">alert("Equipamento Cadastrado com Sucesso");</script>';
